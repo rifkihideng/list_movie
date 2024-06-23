@@ -10,15 +10,9 @@ const App = () => {
       <MovieProvider>
         <div className="App">
           <Routes>
-            <Route path="/list_movie/" element={
-              <>
-                <MovieList category="now_playing" />
-                <MovieList category="popular" />
-                <MovieList category="top_rated" />
-                <MovieList category="upcoming" />
-              </>
-            } />
+            <Route path="/list_movie" element={<MovieList />} />
             <Route path="/movie/:id" element={<MovieDetail />} />
+            <Route path="/" element={<MovieList />} /> {/* Redirect to list_movie */}
           </Routes>
         </div>
       </MovieProvider>
