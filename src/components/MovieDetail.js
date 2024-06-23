@@ -9,7 +9,7 @@ const MovieDetail = () => {
 
   useEffect(() => {
     const fetchMovie = async () => {
-      const apiKey = process.env.REACT_APP_TMDB_API_KEY;
+      const apiKey = '05d7e8600654ed5a58d8be039d549de1';
       const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
       const response = await axios.get(url);
       setMovie(response.data);
