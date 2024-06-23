@@ -1,28 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import MovieCard from './MovieCard';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { MovieContext } from '../contexts/MovieContext';
 import './MovieList.css';
 
 const MovieList = ({ category }) => {
-  const [movies, setMovies] = useState([]);
+  const { movies, loading, baseUrl } = useContext(MovieContext);
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      const apiKey = '05d7e8600654ed5a58d8be039d549de1';
-      const url = `https://api.themoviedb.org/3/movie/${category}?api_key=${apiKey}&language=en-US&page=1`;
-      const response = await axios.get(url);
-      setMovies(response.data.results);
-    };
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-    fetchMovies();
-  }, [category]);
+  const filteredMovies = movies.filter(movie => {
+    // Implement filtering logic based on category (now_playing, popular, etc.)
+    // For demonstration, filtering is based on title containing 'man'
+    return movie.title.toLowerCase().includes('man');
+  });
 
   return (
     <div className="movie-list">
       <h2>{category.replace('_', ' ')}</h2>
       <div className="movies">
-        {movies.map(movie => (
-          <MovieCard key={movie.id} movie={movie} />
+        {filteredMovies.map(movie => (
+          <Link key={movie.id} to={`/movie/${movie.id}`}>
+            <div className="movie-card">
+              <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+              <div className="movie-info">
+                <h3>{movie.title}</h3>
+                <p>Release Date: {movie.release_date}</p>
+              </div>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
