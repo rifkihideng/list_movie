@@ -10,7 +10,7 @@ const App = () => {
       <MovieProvider>
         <div className="App">
           <Routes>
-            <Route path="/list_movie" element={
+            <Route path="/list_movie/" element={
               <>
                 <MovieList category="now_playing" />
                 <MovieList category="popular" />
