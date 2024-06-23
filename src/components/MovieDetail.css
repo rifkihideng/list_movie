@@ -1,0 +1,32 @@
+.movie-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .movie-detail img {
+    width: 300px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .movie-info {
+    text-align: center;
+    max-width: 600px;
+  }
+  
+  .movie-info h2 {
+    margin: 20px 0;
+    color: #333;
+  }
+  
+  .movie-info p {
+    margin: 10px 0;
+    color: #666;
+  }
+  
+  .movie-info p:last-child {
+    margin-bottom: 0;
+  }
+  

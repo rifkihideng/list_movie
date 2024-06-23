@@ -1,0 +1,16 @@
+.movie-list {
+    margin: 20px 0;
+  }
+  
+  .movie-list h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
