@@ -12,6 +12,7 @@ const CameraCapture = ({ onCapture }) => {
       videoRef.current.play();
       setIsStreaming(true);
     } catch (err) {
+      // error fetching
       console.error("Error accessing the camera", err);
     }
   };
